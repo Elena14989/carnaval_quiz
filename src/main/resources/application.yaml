@@ -1,3 +1,9 @@
 spring:
   application:
     name: carnaval-quiz
+  datasource:
+    url: jdbc:mysql://localhost:3306/carnaval_quiz_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+

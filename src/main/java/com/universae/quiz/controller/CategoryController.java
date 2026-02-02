@@ -32,8 +32,9 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public Category getCategory(@PathVariable("id") Long id ){
-        return categoryService.getCategory(id);
+    public CategoryResponse getCategory(@PathVariable("id") Long id) {
+        Category category = categoryService.getCategory(id);
+        return modelMapper.map(category, CategoryResponse.class);
     }
 
 }

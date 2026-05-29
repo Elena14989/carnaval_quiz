@@ -40,12 +40,21 @@ public class QuestionService {
 
     public QuestionResponse getNextQuestion(Long gameId, Long categoryId) {
 
-        Question question = questionRepository.getQuestions()
+        List<Question> questions = questionRepository.getQuestions()
                 .stream()
                 .filter(q -> q.getCategory().getId().equals(categoryId))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("No questions found"));
+                .toList();
+
+        if (questions.isEmpty()) {
+            throw new RuntimeException("No questions found");
+        }
+
+        int random = (int)(Math.random() * questions.size());
+
+        Question question = questions.get(random);
+
         return mapToResponse(question);
+
     }
     private QuestionResponse mapToResponse(Question question) {
         QuestionResponse response = modelMapper.map(question, QuestionResponse.class);

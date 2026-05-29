@@ -34,4 +34,10 @@ public class PlayerService {
         playerRepository.deleteById(id);
     }
 
+    public Player login(String email, String password) {
+        return playerRepository.findByEmail(email)
+                .filter(p -> p.getPassword().equals(password))
+                .orElseThrow(() -> new RuntimeException("Credenciales incorrectas"));
+    }
+
 }

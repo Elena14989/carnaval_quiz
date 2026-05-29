@@ -25,4 +25,8 @@ public class PlayerRepository {
         public void deleteById(Long id) {
             playerSpringDataRepository.deleteById(id);
         }
+
+        public Optional<Player> findByEmail(String email){
+            return playerSpringDataRepository.findByEmail(email);
+        }
 }

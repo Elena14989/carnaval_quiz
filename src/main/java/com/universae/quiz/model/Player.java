@@ -18,6 +18,8 @@ public class Player {
 
     private String name;
     private String alias;
+    private String email;
+    private String password;
     private Integer score;
 
     @OneToMany(mappedBy = "player")

@@ -18,4 +18,3 @@ import lombok.Data;
     private String categoryName;
 
     }
-}

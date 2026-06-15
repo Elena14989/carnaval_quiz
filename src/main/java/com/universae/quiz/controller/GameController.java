@@ -32,9 +32,4 @@ public class GameController {
         gameService.deleteGame(id);
     }
 
-
-    @PostMapping("/start")
-    public Game startGame(@RequestParam Long playerId) {
-        return gameService.startGame(playerId);
-    }
 }

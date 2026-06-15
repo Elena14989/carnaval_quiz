@@ -13,18 +13,15 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
 
-    // 1. Crear partida básica
     public Game createGame(Game game) {
         return gameRepository.save(game);
     }
 
-    // 2. Obtener partida por id
     public Game getGame(Long id) {
         return gameRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Game no encontrado con id: " + id));
     }
 
-    // 3. Eliminar partida
     public void deleteGame(Long id) {
         gameRepository.deleteById(id);
     }

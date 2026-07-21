@@ -18,9 +18,13 @@ public class Player {
 
     private String name;
     private String alias;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
     private String password;
-    private Integer score;
+
+    private Integer score = 0;
 
     @OneToMany(mappedBy = "player")
     private List<GameQuestion> gameQuestions;

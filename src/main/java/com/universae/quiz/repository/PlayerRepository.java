@@ -29,4 +29,8 @@ public class PlayerRepository {
         public Optional<Player> findByEmail(String email){
             return playerSpringDataRepository.findByEmail(email);
         }
+
+         public boolean existsByEmail(String email) {
+        return playerSpringDataRepository.existsByEmail(email);
+         }
 }

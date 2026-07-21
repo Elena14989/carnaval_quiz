@@ -41,17 +41,4 @@ public class PlayerController {
         playerService.deletePlayer(id);
     }
 
-    @PostMapping("/login")
-    public PlayerResponse login(@RequestBody LoginRequest request) {
-
-        Player player = playerService.login(request.getEmail(), request.getPassword());
-
-        PlayerResponse response = new PlayerResponse();
-        response.setId(player.getId());
-        response.setName(player.getName());
-        response.setAlias(player.getAlias());
-        response.setScore(player.getScore());
-
-        return response;
-    }
 }
